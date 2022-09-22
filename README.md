@@ -15,5 +15,3 @@ Lo que tienes que hacer para encenderlo es colocando estos comandos en la consol
 npm i
 npm run dev // o npm start
 ```
-<br>
-Disfruta de esta pagina
