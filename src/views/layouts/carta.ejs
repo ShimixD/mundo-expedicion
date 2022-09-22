@@ -1,0 +1,28 @@
+<div class="contenido-center">
+    <% carta.forEach(e => { %>
+        <div class="box">
+            <article class="media birthday">
+                <div class="media-left">
+                    <% if(e.avatar) { %>
+                        <object style="height: 64px; width: 64px;" class="image" :data="https://cdn.discordapp.com/avatars/<%= e.userID %>/<%= e.avatar %>">
+                            <img src="https://cdn.discordapp.com/avatars/<%= e.userID %>/<%= e.avatar %>"/>
+                        </object>
+                    <% } else { %>
+                        <object style="height: 64px; width: 64px;" class="image" :data="https://cdn.discordapp.com/embed/avatars/0.png">
+                            <img src="https://cdn.discordapp.com/embed/avatars/0.png"/>
+                        </object>
+                    <% } %>
+                </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong><%= e.username %></strong>
+                            <br />
+                            <%= e.mensaje %>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    <% }) %>
+</div>

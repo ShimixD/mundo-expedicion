@@ -1,0 +1,45 @@
+.contenido-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.box {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.box {
+    background-color: aquamarine;
+    border-radius: 6px;
+    box-shadow: 0 .5em 1em -.125em hsla(0,0%,4%,.1),0 0 0 1px hsla(0,0%,4%,.02);
+    color: #4a4a4a;
+    display: block;
+    padding: 1rem;
+}
+.birthday {
+    text-align: left;
+}
+.media {
+    align-items: flex-start;
+    display: flex;
+    text-align: inherit;
+}
+.media-left {
+    margin-right: 1rem;
+}
+.media-content {
+    text-align: inherit;
+}
+.image img{
+    display: block;
+    height: auto;
+    width: 100%;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+.image {
+    display: block;
+    position: relative;
+}

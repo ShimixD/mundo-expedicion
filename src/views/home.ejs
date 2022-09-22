@@ -1,0 +1,13 @@
+<%- include('./layouts/nav') %>
+
+<div style="text-align: center;">
+    <h1 class="titulo">Bienvenido a la página beta de Mundo Expedición!</h1>
+    <a href="/cartas">ver las cartas</a>
+    <% if (user) { %>
+      <h1>Hola <%= user.username %></h1>
+      <a href="/auth/logout">cerrar sesion</a>
+      <a href="/crear">Crea tu carta</a>
+    <% } else { %>
+      <a href="/auth">iniciar sesion</a>
+    <% } %>
+</div>
