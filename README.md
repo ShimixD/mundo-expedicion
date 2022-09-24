@@ -3,6 +3,7 @@
 Crea tu archivo .env y coloca estos datos
 ```js
 DISCORD_CLIENTID=
+DISCORD_TOKEN=
 DISCORD_CLIENTSECRET=
 DISCORD_CALLBACKURL=
 MONGODB=
