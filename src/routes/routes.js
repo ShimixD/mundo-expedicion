@@ -3,9 +3,12 @@ const router = Router();
 const passport = require("passport");
 const { isAuthorized } = require("../utils/middleware/auth");
 
-// Models
-const cartaBeta = require("../utils/models/cartaBeta")
+const { MessageEmbed } = require("discord.js");
+const { createMessage } = require("../utils/utils")
 
+// Models
+const cartaBeta = require("../utils/models/cartaBeta");
+const userSchema = require("../utils/models/userSchema");
 // Auth routes
 router.get("/auth", passport.authenticate("discord"));
 router.get("/auth/redirect", passport.authenticate("discord", {
@@ -38,6 +41,15 @@ router.get("/cartas", async (req, res) => {
         carta: await cartaBeta.find()
     });
 })
+router.get("/user/:id", async (req, res) => {
+    const findUser = await userSchema.find()
+    const filterUser = findUser.find(e => req.params.id === e.discordId)
+    if(!filterUser) return res.send("Link invalido (?")
+
+    res.render("user", {
+        user: filterUser
+    })
+})
 // Post views
 router.post("/crear", async (req, res) => {
     const algo = await cartaBeta.findOne({ userID: req.user.discordId }).lean()
@@ -51,6 +63,13 @@ router.post("/crear", async (req, res) => {
         mensaje: req.body.mensaje
     })
     await data.save()
+
+    const embebeao = new MessageEmbed()
+    .setTitle("Nueva carta de " + data.username)
+    .setThumbnail(`https://cdn.discordapp.com/avatars/${data.userID}/${data.avatar}`)
+    .setDescription(data.mensaje)
+    .setColor("RANDOM")
+    await createMessage("909858459107856466", { embeds: [embebeao] })
 
     res.redirect("/cartas")
 })

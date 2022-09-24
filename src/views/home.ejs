@@ -4,7 +4,7 @@
     <h1 class="titulo">Bienvenido a la página beta de Mundo Expedición!</h1>
     <a href="/cartas">ver las cartas</a>
     <% if (user) { %>
-      <h1>Hola <%= user.username %></h1>
+      <h1>Hola <a href="/user/<%= user.discordId %>"><%= user.username %></a></h1>
       <a href="/auth/logout">cerrar sesion</a>
       <a href="/crear">Crea tu carta</a>
     <% } else { %>
