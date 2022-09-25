@@ -7,7 +7,8 @@
     <br>
     <h1 class="trazo">Crea tu carta :D</h1>
     <form method="post" action="/crear">
-        <strong class="trazo"><img src="https://cdn.discordapp.com/avatars/<%= user.discordId %>/<%= user.avatar %>" alt=""> <%= user.username %></strong>
+        <img src="https://cdn.discordapp.com/avatars/<%= user.discordId %>/<%= user.avatar %>" alt="">
+        <strong class="trazo"><%= user.username %></strong>
         <br><br>
         <label class="trazo">Mensaje:</label>
         <input type="text" name="mensaje">
