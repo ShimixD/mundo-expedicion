@@ -29,20 +29,20 @@ router.get("/auth/logout", (req, res) => {
 // Views router
 router.get("/", (req, res) => {
     res.render("home")
-})
+});
 router.get("/crear", isAuthorized, async (req, res) => {
     res.render("crear");
-})
+});
 router.get("/comunidad", async (req, res) => {
     res.render("comunidad", {
         userA: await userSchema.find()
     })
-})
+});
 router.get("/cartas", async (req, res) => {
     res.render("cartas", {
         carta: await cartaBeta.find()
     });
-})
+});
 router.get("/user/:id", async (req, res) => {
     const findUser = await userSchema.find()
     const filterUser = findUser.find(e => req.params.id === e.discordId)
@@ -50,8 +50,8 @@ router.get("/user/:id", async (req, res) => {
 
     res.render("user", {
         userB: filterUser
-    })
-})
+    });
+});
 // Post views
 router.post("/crear", async (req, res) => {
     const algo = await cartaBeta.findOne({ userID: req.user.discordId }).lean()
@@ -74,6 +74,14 @@ router.post("/crear", async (req, res) => {
     await createMessage("909858459107856466", { embeds: [embebeao] })
 
     res.redirect("/cartas")
-})
+});
+router.post("/datos-opcionales", async (req, res) => {
+    if(!req.body.descripcion) return res.send("Pendejo no pusiste la descripcion")
+
+    const data = await userSchema.findOneAndUpdate({ descripcion: req.body.descripcion })
+    await data.save()
+
+    res.redirect("/user/" + req.user.discordId)
+});
 
 module.exports = router;

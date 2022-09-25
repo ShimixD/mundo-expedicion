@@ -12,6 +12,9 @@ const userSchema = new Schema({
   avatar: {
     type: String,
   },
+  descripcion: {
+    type: String
+  },
 }, {
   timestamps: true,
 });

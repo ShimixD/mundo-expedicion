@@ -4,6 +4,36 @@
     <%- include('./layouts/nav') %>
 </head>
 <body style="text-align: center;">
-    <h1>usuario <%= userB.username %></h1>
+    <br>
+    <% if(userB.avatar) { %>
+        <img src="https://cdn.discordapp.com/avatars/<%= userB.discordId %>/<%= userB.avatar %>" height="180"/>
+    <% } else { %>
+        <img src="https://cdn.discordapp.com/embed/avatars/0.png" height="180"/>
+    <% } %>
+    <h1 class="trazo">usuario <%= userB.username %></h1>
+    <% if(user) { %>
+        <% if(user.discordId === userB.discordId) { %>
+            <% if(!userB.descripcion) { %>
+                <form method="post" action="/datos-opcionales">
+                    <label class="trazo">Crea tu descripción!</label>
+                    <input type="text" name="descripcion">
+                    <button>subir</button>
+                </form>
+            <% } %>
+        <% } %>
+    <% } %>
+
+    <% if(userB.descripcion) { %>
+        <h4><%= userB.descripcion %></h4>
+        <% if(user) { %>
+            <% if(user.discordId === userB.discordId) { %>
+                <form method="post" action="/datos-opcionales">
+                    <label class="trazo">Edita tu descripción!</label>
+                    <input type="text" name="descripcion">
+                    <button>subir</button>
+                </form>
+            <% } %>
+        <% } %>
+    <% } %>
 </body>
 </html>
