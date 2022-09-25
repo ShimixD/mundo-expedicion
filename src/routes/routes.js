@@ -38,7 +38,7 @@ router.get("/crear", isAuthorized, async (req, res) => {
 })
 router.get("/comunidad", async (req, res) => {
     res.render("comunidad", {
-        user: await userSchema.find()
+        userA: await userSchema.find()
     })
 })
 router.get("/cartas", async (req, res) => {
