@@ -30,9 +30,6 @@ router.get("/auth/logout", (req, res) => {
 router.get("/", (req, res) => {
     res.render("home")
 })
-router.get("/welcome", (req, res) => {
-    res.render("welcome")
-})
 router.get("/crear", isAuthorized, async (req, res) => {
     res.render("crear");
 })
@@ -52,7 +49,7 @@ router.get("/user/:id", async (req, res) => {
     if(!filterUser) return res.render("layouts/404")
 
     res.render("user", {
-        user: filterUser
+        userB: filterUser
     })
 })
 // Post views

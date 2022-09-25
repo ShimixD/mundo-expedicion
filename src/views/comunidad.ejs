@@ -3,15 +3,22 @@
 <head>
     <%- include('./layouts/nav') %>
 </head>
-<body>
-    <h1>Conoce a nuevas personas!</h1>
-    <% userA.forEach(e => { %>
-        <% if(e.avatar) { %>
-            <img src="https://cdn.discordapp.com/avatars/<%= e.discordId %>/<%= e.avatar %>"/>
-        <% } else { %>
-            <img src="https://cdn.discordapp.com/embed/avatars/0.png"/>
-        <% } %>
-        <a href="/user/<%= e.discordId %>"><%= e.username %></a>
-    <% }) %>
+<body style="text-align: center;">
+    <h1 class="trazo">Conoce a nuevas personas!</h1>
+    <div class="card-group">
+        <% userA.forEach(e => { %>
+            <div class="card">
+                <% if(e.avatar) { %>
+                    <img src="https://cdn.discordapp.com/avatars/<%= e.discordId %>/<%= e.avatar %>" height="180"/>
+                <% } else { %>
+                    <img src="https://cdn.discordapp.com/embed/avatars/0.png" height="180"/>
+                <% } %>
+                <div class="card-body">
+                    <h5 class="card-title"><%= e.username %></h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
 </body>
 </html>

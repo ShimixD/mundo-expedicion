@@ -29,5 +29,9 @@ app.use((req, res, next) => {
 });
 // Routes
 app.use("/", require("../routes/routes"));
+// 404
+app.use((req, res, next) => {
+  res.status(404).render("layouts/404")
+});
 
 module.exports = app;
