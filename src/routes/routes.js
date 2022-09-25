@@ -36,6 +36,11 @@ router.get("/welcome", (req, res) => {
 router.get("/crear", isAuthorized, async (req, res) => {
     res.render("crear");
 })
+router.get("/comunidad", async (req, res) => {
+    res.render("comunidad", {
+        user: await userSchema.find()
+    })
+})
 router.get("/cartas", async (req, res) => {
     res.render("cartas", {
         carta: await cartaBeta.find()
@@ -44,7 +49,7 @@ router.get("/cartas", async (req, res) => {
 router.get("/user/:id", async (req, res) => {
     const findUser = await userSchema.find()
     const filterUser = findUser.find(e => req.params.id === e.discordId)
-    if(!filterUser) return res.send("Link invalido (?")
+    if(!filterUser) return res.render("layouts/404")
 
     res.render("user", {
         user: filterUser

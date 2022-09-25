@@ -3,14 +3,14 @@
 <div style="text-align: center;">
   <br>
   <img class="avion" src="images/aviondoki.gif" alt="">
-  <h1 class="titulo">Bienvenido a la página beta de Mundo Expedición!</h1>
+  <h1 class="trazo">Bienvenido a la página beta de Mundo Expedición!</h1>
   
-  <a href="/cartas">ver las cartas</a>
   <% if (user) { %>
-    <h1>Hola <a href="/user/<%= user.discordId %>"><%= user.username %></a></h1>
-    <a href="/auth/logout">cerrar sesion</a>
-    <a href="/crear">Crea tu carta</a>
+    <h1 class="trazo">Hola <a href="/user/<%= user.discordId %>"><%= user.username %></a></h1>
+    <a class="btn btn-info" href="/cartas">Ver las cartas</a>
+    <a class="btn btn-primary" href="/crear">Crea tu carta</a>
   <% } else { %>
-    <a href="/auth">iniciar sesion</a>
+    <a class="btn btn-success" href="/auth">Iniciar Sesión</a>
+    <a class="btn btn-info" href="/cartas">Ver las cartas</a>
   <% } %>
 </div>

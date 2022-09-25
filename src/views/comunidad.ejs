@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./layouts/nav') %>
+</head>
+<body>
+    <h1>Conoce a nuevas personas!</h1>
+    <% user.forEach(e => { %>
+        <% if(e.avatar) { %>
+            <img src="https://cdn.discordapp.com/avatars/<%= e.discordId %>/<%= e.avatar %>"/>
+        <% } else { %>
+            <img src="https://cdn.discordapp.com/embed/avatars/0.png"/>
+        <% } %>
+        <a href="/user/"><%= e.username %></a>
+    <% }) %>
+</body>
+</html>

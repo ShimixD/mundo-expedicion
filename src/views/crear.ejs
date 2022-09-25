@@ -3,13 +3,13 @@
 <head>
     <%- include('./layouts/nav') %>
 </head>
-<body>
-    <h1>Crea tu carta :D</h1>
+<body style="text-align: center;">
+    <br>
+    <h1 class="trazo">Crea tu carta :D</h1>
     <form method="post" action="/crear">
-        <strong><img src="https://cdn.discordapp.com/avatars/<%= user.discordId %>/<%= user.avatar %>" alt=""> <%= user.username %></strong>
-        <br>
-
-        <label>Mensaje</label>
+        <strong class="trazo"><img src="https://cdn.discordapp.com/avatars/<%= user.discordId %>/<%= user.avatar %>" alt=""> <%= user.username %></strong>
+        <br><br>
+        <label class="trazo">Mensaje:</label>
         <input type="text" name="mensaje">
 
         <button>subir</button>

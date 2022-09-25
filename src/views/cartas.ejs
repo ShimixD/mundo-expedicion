@@ -4,7 +4,8 @@
     <%- include('./layouts/nav') %>
 </head>
 <body>
-    <h1 style="text-align: center;">Cartas de los usuarios!</h1>
+    <br>
+    <h1 style="text-align: center;" class="trazo">Cartas de los usuarios!</h1>
     <div class="contenido-center">
         <% carta.forEach(e => { %>
             <div class="box">
@@ -33,6 +34,8 @@
             </div>
         <% }) %>
     </div>
-    <h3 style="text-align: center;"><a href="/crear">Crea tu carta</a></h3>
+    <% if (user) { %>
+        <h3 style="text-align: center;" class="trazo"><a href="/crear">Crea tu carta</a></h3>
+    <% } %>
 </body>
 </html>
