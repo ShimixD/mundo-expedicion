@@ -77,9 +77,10 @@ router.post("/crear", async (req, res) => {
 });
 router.post("/datos-opcionales", async (req, res) => {
     if(!req.body.descripcion) return res.send("Pendejo no pusiste la descripcion")
+    const data = await userSchema.findOneAndUpdate({ discordId: req.user.discordId }, { descripcion: req.body.descripcion })
 
-    const data = await userSchema.findOneAndUpdate({ descripcion: req.body.descripcion })
-    await data.save()
+    console.log(data)
+    console.log(req.user.id)
 
     res.redirect("/user/" + req.user.discordId)
 });
