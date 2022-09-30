@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./layouts/nav') %>
+</head>
+<body style="text-align: center;">
+    <br>
+    <h1 class="trazo">Configuración</h1>
+    <h4 class="trazo">Configuracion del perfil del usuario</h4>
+    <div class="container">
+        <form action="/datos/descripcion" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label trazo">Coloca tu descripción:</label>
+                <input type="text" class="form-control" name="descripcion" aria-describedby="emailHelp" />
+            </div>
+            <button class="btn btn-primary">Subir descripción</button>
+        </form>
+        <br>
+        <form action="/datos/cumpleanos" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label trazo">Coloca tu fecha de cumpleaños:</label>
+                <input type="date" class="form-control" name="birthday" aria-describedby="emailHelp" />
+            </div>
+            <button class="btn btn-primary">Subir fecha de cumpleaños</button>
+        </form>
+    </div>
+</body>
+</html>

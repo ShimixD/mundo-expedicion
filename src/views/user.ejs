@@ -11,40 +11,18 @@
         <img src="https://cdn.discordapp.com/embed/avatars/0.png" height="180"/>
     <% } %>
     <h1 class="trazo">usuario <%= userB.username %></h1>
-    <% if(user) { %>
-        <% if(user.discordId === userB.discordId) { %>
-            <% if(!userB.descripcion) { %>
-                <form method="post" action="/datos/descripcion">
-                    <label class="trazo">Crea tu descripción!</label>
-                    <input type="text" name="descripcion">
-                    <button>subir</button>
-                </form>
-            <% } %>
-            <% if(!userB.birthday) { %>
-                <form method="post" action="/datos/cumpleanos">
-                    <label class="trazo">Coloca tu fecha de cumpleaños!</label>
-                    <input type="date" name="birthday">
-                    <button>subir</button>
-                </form>
-            <% } %>
-        <% } %>
-    <% } %>
 
     <% if(userB.descripcion) { %>
-        <h4 class="trazo"><%= userB.descripcion %> <% if(user) { %>
-            <% if(user.discordId === userB.discordId) { %>
-                <button class="btn btn-primary" id="botonEditar"><i class="fa-solid fa-pen-to-square"></i></button>
-            <% } %>
-        <% } %></h4>
-
-        <% if(user) { %>
-            <% if(user.discordId === userB.discordId) { %>
-                <div id="divEditar"></div>
-            <% } %>
-        <% } %>
+        <h4 class="trazo"><%= userB.descripcion %></h4>
     <% } %>
     <% if(userB.birthday) { %>
         <h4 class="trazo">Fecha de Cumpleaños: <%= userB.birthday %></h4>
+    <% } %>
+
+    <% if(user) { %>
+        <% if(user.discordId === userB.discordId) { %>
+            <a class="btn btn-primary" href="/configuracion">Configurar perfil</a>
+        <% } %>
     <% } %>
 </body>
 <script src="/main.js"></script>

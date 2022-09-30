@@ -33,6 +33,9 @@ router.get("/", (req, res) => {
 router.get("/crear", isAuthorized, async (req, res) => {
     res.render("crear");
 });
+router.get("/configuracion", isAuthorized, async (req, res) => {
+    res.render("configuracion");
+});
 router.get("/comunidad", async (req, res) => {
     res.render("comunidad", {
         userA: await userSchema.find()

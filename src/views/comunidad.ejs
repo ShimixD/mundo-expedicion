@@ -26,7 +26,12 @@
                                 <p class="card-text text-center" style="font-family: 'Outfit', sans-serif;"><%= e.descripcion %></p>
                             <% } %>
                             <div class="text-center">
-                                <a class="btn btn-info" href="/user/<%= e.discordId %>" style="margin-right: 5px;">Ver perfil</a>
+                                <% if(user) { %>
+                                    <% if(user.discordId === e.discordId) { %>
+                                        <a class="btn btn-outline-info" href="/configuracion" style="margin-right: 5px;">Configurar</a>
+                                    <% } %>
+                                <% } %>
+                                <a class="btn btn-primary" href="/user/<%= e.discordId %>" style="margin-right: 5px;">Ver perfil</a>
                             </div>
                         </div>
                     </div>
