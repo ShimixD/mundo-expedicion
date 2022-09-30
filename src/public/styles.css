@@ -11562,4 +11562,8 @@ img {
 .imagen-comuni {
   height: 40%;
 }
+.icon-server {
+  margin-top: -75px;
+  border: 2px solid #ddd;
+}
 /* Cosas adicionales para la pagina (Hecho por Shimi)*/

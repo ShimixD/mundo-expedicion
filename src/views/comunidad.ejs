@@ -4,23 +4,35 @@
     <%- include('./layouts/nav') %>
 </head>
 <body style="text-align: center;">
+    <br>
     <h1 class="trazo">Conoce a nuevas personas!</h1>
-    <div class="card-group">
-        <% userA.forEach(e => { %>
-            <div class="card">
-                <% if(e.avatar) { %>
-                    <img src="https://cdn.discordapp.com/avatars/<%= e.discordId %>/<%= e.avatar %>" height="180"/>
-                <% } else { %>
-                    <img src="https://cdn.discordapp.com/embed/avatars/0.png" height="180"/>
-                <% } %>
-                <div class="card-body">
-                    <h5 class="card-title"><a href="/user/<%= e.discordId %>"><%= e.username %></a></h5>
-                    <% if(e.descripcion) { %>
-                        <p class="trazo"><%= e.descripcion %></p>
-                    <% } %>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <% userA.forEach(e => { %>
+                <div class="col">
+                    <div class="card text-bg-dark mb-3 h-100" style="background-color: #161618;">
+                        <img src="https://i.blogs.es/3ce065/discord/1366_2000.jpg" class="card-img-top img-fluid">
+    
+                        <div class="text-center">
+                            <% if(e.avatar) { %>
+                                <img src="https://cdn.discordapp.com/avatars/<%= e.discordId %>/<%= e.avatar %>" class="img-fluid icon-server rounded-circle" height="150px" width="150px" alt="<%= e.avatar %>">
+                            <% } else { %>
+                                <img src="https://cdn.discordapp.com/embed/avatars/0.png" class="img-fluid icon-server rounded-circle" height="150px" width="150px" alt="discord profile"/>
+                            <% } %>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><%= e.username %></h5>
+                            <% if(e.descripcion) { %>
+                                <p class="card-text text-center" style="font-family: 'Outfit', sans-serif;"><%= e.descripcion %></p>
+                            <% } %>
+                            <div class="text-center">
+                                <a class="btn btn-info" href="/user/<%= e.discordId %>" style="margin-right: 5px;">Ver perfil</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        <% }) %>
+            <% }) %>
+        </div>
     </div>
 </body>
 </html>
