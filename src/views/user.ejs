@@ -14,9 +14,16 @@
     <% if(user) { %>
         <% if(user.discordId === userB.discordId) { %>
             <% if(!userB.descripcion) { %>
-                <form method="post" action="/datos-opcionales">
+                <form method="post" action="/datos/descripcion">
                     <label class="trazo">Crea tu descripción!</label>
                     <input type="text" name="descripcion">
+                    <button>subir</button>
+                </form>
+            <% } %>
+            <% if(!userB.birthday) { %>
+                <form method="post" action="/datos/cumpleanos">
+                    <label class="trazo">Coloca tu fecha de cumpleaños!</label>
+                    <input type="date" name="birthday">
                     <button>subir</button>
                 </form>
             <% } %>
@@ -24,16 +31,21 @@
     <% } %>
 
     <% if(userB.descripcion) { %>
-        <h4><%= userB.descripcion %></h4>
+        <h4 class="trazo"><%= userB.descripcion %> <% if(user) { %>
+            <% if(user.discordId === userB.discordId) { %>
+                <button class="btn btn-primary" id="botonEditar"><i class="fa-solid fa-pen-to-square"></i></button>
+            <% } %>
+        <% } %></h4>
+
         <% if(user) { %>
             <% if(user.discordId === userB.discordId) { %>
-                <form method="post" action="/datos-opcionales">
-                    <label class="trazo">Edita tu descripción!</label>
-                    <input type="text" name="descripcion">
-                    <button>subir</button>
-                </form>
+                <div id="divEditar"></div>
             <% } %>
         <% } %>
     <% } %>
+    <% if(userB.birthday) { %>
+        <h4 class="trazo">Fecha de Cumpleaños: <%= userB.birthday %></h4>
+    <% } %>
 </body>
+<script src="/main.js"></script>
 </html>

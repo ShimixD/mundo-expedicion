@@ -75,14 +75,23 @@ router.post("/crear", async (req, res) => {
 
     res.redirect("/cartas")
 });
-router.post("/datos-opcionales", async (req, res) => {
+router.post("/datos/descripcion", async (req, res) => {
     if(!req.body.descripcion) return res.send("Pendejo no pusiste la descripcion")
-    const data = await userSchema.findOneAndUpdate({ discordId: req.user.discordId }, { descripcion: req.body.descripcion })
-
-    console.log(data)
-    console.log(req.user.id)
+    await userSchema.findOneAndUpdate({ discordId: req.user.discordId }, { descripcion: req.body.descripcion })
 
     res.redirect("/user/" + req.user.discordId)
 });
+router.post("/datos/cumpleanos", async (req, res) => {
+    const date = new Date(req.body.birthday)
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1;
+
+    const str = `${day}/${month}/****`;
+
+    if(!req.body.birthday) return res.send("Pendejo no pusiste tu cumpleaños")
+    await userSchema.findOneAndUpdate({ discordId: req.user.discordId }, { birthday: str })
+
+    res.redirect("/user/" + req.user.discordId)
+})
 
 module.exports = router;

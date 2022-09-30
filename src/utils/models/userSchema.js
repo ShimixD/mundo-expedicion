@@ -15,6 +15,9 @@ const userSchema = new Schema({
   descripcion: {
     type: String
   },
+  birthday: {
+    type: String
+  },
 }, {
   timestamps: true,
 });

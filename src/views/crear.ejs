@@ -6,14 +6,13 @@
 <body style="text-align: center;">
     <br>
     <h1 class="trazo">Crea tu carta :D</h1>
+    <img src="https://cdn.discordapp.com/avatars/<%= user.discordId %>/<%= user.avatar %>" alt="">
+    <h3 class="trazo"><%= user.username %></h3>
     <form method="post" action="/crear">
-        <img src="https://cdn.discordapp.com/avatars/<%= user.discordId %>/<%= user.avatar %>" alt="">
-        <strong class="trazo"><%= user.username %></strong>
-        <br><br>
         <label class="trazo">Mensaje:</label>
         <input type="text" name="mensaje">
 
-        <button>subir</button>
+        <button class="btn btn-primary">Subir carta</button>
     </form>
 </body>
 </html>
